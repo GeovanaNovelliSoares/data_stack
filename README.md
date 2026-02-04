@@ -1,42 +1,46 @@
-# Modern Data Stack Local: Pipeline End-to-End (OLTP para OLAP)
+# Modern Data Stack Local: End-to-End Pipeline (OLTP to OLAP)
 
-Este projeto demonstra a implementação de uma infraestrutura de dados moderna e completa, operando de forma 100% local e gratuita. O objetivo é simular o ciclo de vida do dado em um cenário corporativo, desde a geração transacional até a visualização analítica avançada.
+This project demonstrates the implementation of a modern and complete data infrastructure, operating 100% locally and free of charge. The goal is to simulate the data lifecycle in a corporate scenario, from transactional generation to advanced analytical visualization.
 
-## 🏗️ Arquitetura da Solução
+## 🏗️ Solution Architecture
 
-A arquitetura segue o conceito de "Modern Data Stack in a Box", utilizando ferramentas de alta performance para processamento colunar e modelagem dimensional.
+The architecture follows the "Modern Data Stack in a Box" concept, using high-performance tools for columnar processing and dimensional modeling.
 
-1.  **Source (OLTP):** Um banco de dados **SQLite** simulando o sistema de produção de um e-commerce, estruturado em Terceira Forma Normal (3NF).
-2.  **Ingestion & Storage (Data Lake):** Processo de extração de dados brutos para arquivos **Apache Parquet**, otimizando o armazenamento e preparando o terreno para leituras colunares.
-3.  **Data Warehouse (OLAP):** Utilização do **DuckDB** para transformação e modelagem. Os dados são estruturados em um **Star Schema** (Esquema em Estrela), facilitando consultas analíticas de baixa latência.
-4.  **Presentation (BI):** Dashboard interativo desenvolvido em **Streamlit** com visualizações dinâmicas e animadas via **Plotly**.
+1. **Source (OLTP):** A **SQLite** database simulating the production system of an e-commerce platform, structured in Third Normal Form (3NF).
 
----
+2. **Ingestion & Storage (Data Lake):** Raw data extraction process to **Apache Parquet** files, optimizing storage and preparing the ground for columnar reads.
 
-## 🛠️ Tecnologias Utilizadas
+3. **Data Warehouse (OLAP):** Use of **DuckDB** for transformation and modeling. The data is structured in a **Star Schema**, facilitating low-latency analytical queries.
 
-* **Linguagem:** Python 3.10+
-* **Banco Transacional:** SQLite
-* **Motor Analítico/DWH:** DuckDB
-* **Formato de Armazenamento:** Apache Parquet
-* **Bibliotecas Principais:** Pandas, Plotly, Streamlit, Faker
-* **Modelagem de Dados:** Star Schema (Fatos e Dimensões)
+4. **Presentation (BI):** Interactive dashboard developed in **Streamlit** with dynamic and animated visualizations via **Plotly**.
 
 ---
 
-## 📈 Modelagem Dimensional (Star Schema)
+## 🛠️ Technologies Used
 
-Para otimizar a performance analítica, o armazém de dados foi modelado seguindo as melhores práticas de Business Intelligence:
-
-* **Tabela Fato (`fact_vendas`):** Contém as métricas quantitativas e chaves estrangeiras.
-* **Dimensões (`dim_cliente`, `dim_produto`, `dim_tempo`):** Contêm os atributos descritivos para filtragem e agrupamento (slicing and dicing).
+* **Language:** Python 3.10+
+* **Transactional Database:** SQLite
+* **Analytic Engine/DWH:** DuckDB
+* **Storage Format:** Apache Parquet
+* **Main Libraries:** Pandas, Plotly, Streamlit, Faker
+* **Data Modeling:** Star Schema (Facts and Dimensions)
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 📈 Dimensional Modeling (Star Schema)
 
-### 1. Requisitos
-Certifique-se de ter o Python instalado. Recomenda-se o uso de um ambiente virtual (`venv`).
+To optimize analytical performance, the data warehouse was modeled following Business Intelligence best practices:
 
-```bash
+* **Fact Table (`fact_vendas`):** Contains quantitative metrics and foreign keys.
+
+* **Dimensions (`dim_cliente`, `dim_produto`, `dim_tempo`):** Contain descriptive attributes for filtering and grouping (slicing and dicing).
+
+---
+
+## 🚀 How to Run the Project
+
+### 1. Requirements
+Make sure you have Python installed. Using a virtual environment (`venv`) is recommended.
+
+``bash
 pip install -r requirements.txt
